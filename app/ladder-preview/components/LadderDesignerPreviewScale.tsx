@@ -94,9 +94,18 @@ export default function SingleStepLadder_MinForm() {
 
   function TopView(pp: Params): makerjs.IModel {
     const depth_cut = pp.rodW * 2;
+    const depth_cut_inner = pp.rodW * 2 - 20;
+    const top_inner_width = pp.topW - depth_cut;
+    const top_inner_hight = pp.depth - depth_cut;
+    
     const top = new makerjs.models.Rectangle(pp.topW, pp.depth);
-    const top_inner = new makerjs.models.Rectangle(pp.bottomW,pp.depth - depth_cut);
-    const top_inner_2 = new makerjs.models.Rectangle(pp.bottomW - 20,pp.depth - depth_cut - 20);
+
+
+    const top_inner = new makerjs.models.Rectangle(top_inner_width,top_inner_hight);
+
+    const top_inner_2 = new makerjs.models.Rectangle(top_inner_width - 20,top_inner_hight - 20);
+
+
     top.origin = [0, 0];
     top_inner.origin = [depth_cut - pp.rodW, depth_cut -pp.rodW];
     top_inner_2.origin = [depth_cut - 15, depth_cut -15];
