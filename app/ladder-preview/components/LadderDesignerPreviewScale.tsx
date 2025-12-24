@@ -164,7 +164,7 @@ export default function SingleStepLadder_MinForm() {
 
   const svg = useMemo(() => {
     const root = frontView(p);
-
+    const mirror = makerjs.model.mirror(root, true, false);
     let out = makerjs.exporter.toSVG(root, { units: 'mm', scale: 1 } as any);
     out = out.replace(
       '</svg>',
